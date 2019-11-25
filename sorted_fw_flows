@@ -1,0 +1,67 @@
+
+
+## Script find the unique lines in the file and generate sorted file based on ports.
+
+import csv,time
+reader = csv.reader(open("log.csv"))
+reader = list(reader)
+duplicate = []
+for line in reader[1:]:
+    if line not in duplicate:
+       print(line)
+       duplicate.append(line)
+
+
+print("Tola line scanned" , len(reader))
+print("Total Unique line found",len(duplicate))
+
+
+
+## Writing unsorted unqiue data in output.csv
+
+outputFile = open('output.csv', 'w', newline='')
+outputWriter = csv.writer(outputFile)
+for index,line in enumerate(duplicate):
+    print(index,line)
+    outputWriter.writerow(line)
+
+outputFile.close()
+
+
+## Writing Sorted Data in sorted_log.csv
+
+## Sort with Ports
+
+readerfile = csv.reader(open("output.csv"))
+reader = list(readerfile)
+print ("creating Sorted File, Please wait")
+time.sleep(1)
+## Creating Port Filter
+ports = []
+for line in reader:
+    if line[2] not in ports:
+        #print(line[2])
+        ports.append(line[2])
+
+## Creat New File to write sorted Data based on Port
+outputFile = open('sorted_log.csv', 'w', newline='')
+outputWriter = csv.writer(outputFile)
+
+
+for port in ports:
+    print(f"print port details {port} ")
+    for line in reader:
+        if port in line:
+            print (line)
+            outputWriter.writerow(line)
+        
+print("\n************Sorted File Created************************")
+
+
+outputFile.close()
+
+            
+   
+
+
+
