@@ -42,4 +42,10 @@ def printt(ulist,x,y,z):
             print (f" None  ----------------------- None  ------------------ {ulist[i]} ---")
    
 
-printt(ulist=list(set(x+y+z)),x = f5_list,y = avi_list,z = palo_list)
+printt(ulist=list(set(palo_list+avi_list+f5_list)),x = f5_list,y = avi_list,z = palo_list)
+
+### Option way of executive same function 
+#x = f5_list
+#y = avi_list
+#z = palo_list
+#printt(ulist=list(set(x+y+z)),x,y,z)
