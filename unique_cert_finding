@@ -45,7 +45,35 @@ def printt(ulist,x,y,z):
 printt(ulist=list(set(palo_list+avi_list+f5_list)),x = f5_list,y = avi_list,z = palo_list)
 
 ### Option way of executive same function 
+
 #x = f5_list
 #y = avi_list
 #z = palo_list
 #printt(ulist=list(set(x+y+z)),x,y,z)
+
+## Alternate way of doint this from set...
+convert your x,y,z list to set first and than try
+xyz = set.intersection(x,y,z)
+print("common between all " + str(xyz))
+
+xy = set.intersection(x,y)
+print(xy)
+
+yz = set.intersection(y,z)
+print(yz)
+
+zx = set.intersection(x,z)
+print(zx)
+
+xyzu = set.union(x,y,z)
+print("Unique between all " + str(xyzu))
+
+Unique_x = x.difference(y,z)
+print(Unique_x)
+
+Unique_y = y.difference(x,z)
+print(Unique_y)
+
+Unique_z = z.difference(x,y)
+print(Unique_z)
+ 
