@@ -1,0 +1,45 @@
+## This program has 3 list x,y,z created out of 3 dictionary. Program Create unique value as per below
+## Find items which is unique in x,y,z
+## Find items which is unique in x,y
+## Find items which is unique in y,z
+## Find items which is unique in x,z
+## find items which is just unique in X
+## find items which is just unique in Y
+## find items which is just unique in Z
+
+ssl_palo= {This already has data in Key= Value is List}
+ssl_avi= {This already has data in Key= Value is List}
+ssl_f5= {This already has data in Key= Value is List}
+
+## Creating Empty list and adding data from above dictionary 
+palo_list = []
+avi_list = []
+f5_list = []
+
+for k,v in ssl_palo.items():palo_list +=v 
+for k,v in ssl_avi.items():avi_list +=v 
+for k,v in ssl_avi.items():f5_list +=v 
+
+
+## Define function for find unique data as per objective 
+
+def printt(ulist,x,y,z):
+    print ("<< F5 ------------------------------------------------------------ AVI ---------------------------------------------------------------- PA >>   ")
+    for i in range(len(ulist)):
+        if ulist[i] in x and ulist[i] in y and ulist[i] in z:
+            print (f"{ulist[i]} ------------------ {ulist[i]} ---------------- {ulist[i]}   ")
+        elif ulist[i] in x and ulist[i] in y :
+            print (f" {ulist[i]} ----------------- {ulist[i]} ----------------- None")
+        elif ulist[i] in y and ulist[i] in z :
+            print (f" None ---------------------- {ulist[i]} ----------------- {ulist[i]}")
+        elif ulist[i] in x and ulist[i] in z :
+            print (f" {ulist[i]} ----------------- None --------------------- {ulist[i]}")
+        elif ulist[i] not in y and ulist[i] not in z :
+            print (f" {ulist[i]} ----------------- None ---------------------- None---")
+        elif ulist[i] not in x and ulist[i] not in z :
+            print (f" None  ---------------------- {ulist[i]} -------------------- None---")
+        elif ulist[i] not in x and ulist[i] not in y :
+            print (f" None  ----------------------- None  ------------------ {ulist[i]} ---")
+   
+
+printt(ulist=list(set(x+y+z)),x = f5_list,y = avi_list,z = palo_list)
