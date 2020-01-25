@@ -1,0 +1,27 @@
+import random
+
+choice_char = 'abcdedfghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+def uuid_gen(choice_char):
+    uuidset1 = "".join(random.choice(choice_char) for each in range(5))
+    uuidset2 = "".join(random.choice(choice_char) for each in range(5))
+    uuidset3 = "".join(random.choice(choice_char) for each in range(5))
+    uuidset4 = "".join(random.choice(choice_char) for each in range(5))
+    uuidset5 = "".join(random.choice(choice_char) for each in range(5))
+    uuidset = uuidset1+"-"+uuidset2+"-"+uuidset3+"-"+uuidset4+"-"+uuidset5
+    return uuidset
+
+## Generate 1 million items of uuid and compare 
+uuid_list = []  
+# uuidgroup = uuid_gen(choice_char)+"-"+uuid_gen(choice_char)+"-"+uuid_gen(choice_char)+"-"+uuid_gen(choice_char)+"-"+uuid_gen(choice_char)
+# print (uuidgroup)
+
+for i in range (100000):
+    if uuid_gen(choice_char) not in uuid_list:
+        uuid_list.append(uuid_gen(choice_char))
+    else:
+         print(f" uuidgroup found {uuid_gen(choice_char)} in existing uuid list ")
+
+print(uuid_list)
+print( len(uuid_list))
+print(len(set(uuid_list)))
